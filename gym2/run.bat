@@ -1,1 +1,0 @@
-java -jar gym3.jar

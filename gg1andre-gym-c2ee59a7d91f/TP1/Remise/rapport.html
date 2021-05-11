@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 | Equipe 16</title>
+    <style>
+        body{ margin: 0; padding:2.5em 0 2.5em 5px; }
+        .clr{ clear: both ; }
+        h1{
+            margin:0;
+            width:100%; 
+            text-align: center;
+            background-color: black;
+            color:white;
+            position:fixed;
+            top:0;
+            left:0;
+        }
+        h2{
+            border-radius: 4px;
+            width:calc(100% - 10px); 
+            padding: 2px 0 2px 5px;
+            background-color: black;
+            color:white;
+            margin:0 0 0.15em 0;             
+        }
+        h3{ margin:0 0 0.7em 0;}
+        p{  margin:0 0 0.4em 0; 
+            padding-left: 1.5em; 
+            text-indent:-1.5em; 
+            line-height: 1.25em;
+        }
+        .s-alts{
+            padding-left: 2.15em; 
+            text-indent:-2.15em; 
+        }
+        section{
+            padding-left:15px;
+        }
+        h4{
+            margin:0;       
+            display: inline-block;
+        }
+        .ul{
+            border-bottom:1px solid black;
+        }
+        .membre h4{        
+            width:80px;
+        }
+        .membre{
+            margin: 5px;
+            padding: 5px;
+            width:calc(32.5% - 10px);
+            min-width: 400px;
+            border-radius: 8px;
+            border: 2px solid black;
+            background: rgba(0,0,0,0.1);
+            float:left;
+        }
+        table{
+            border: outset 3px black;           
+            border-collapse: collapse;     
+        }
+        thead{
+            border-bottom: outset 2px black;
+        }
+        tr{
+            border-bottom: outset 1px black;
+        }    
+        tr td:first-of-type , tr th:first-of-type{
+            border-right: outset 2px black;
+        }
+        td{
+            text-align: center;
+        }
+        td:first-child{
+            text-align:left;
+        }  
+        .cu{
+            margin: 5px;
+            padding: 5px;
+            width:calc(32.5% - 10px);
+            min-width: 420px;        
+            float:left;
+        } 
+        .cu-header{
+            text-align: center;
+            padding : 2px;
+            width:100%;
+            outline: solid black 2px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .cu-body{
+            padding : 2px 2px 2px 5px;
+            width:100%;
+            min-height: 945px;
+            outline: solid black 2px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .line-spacer{
+            margin:0;
+            padding:0;
+            height:2px;
+            display:block;
+        }
+        .enum{
+            text-align: center;
+            display:inline-block;
+            color:rgba(0,94,200,0.8);   
+            font-weight: bold;         
+        }
+        .s-alts .enum{
+            text-align: left;
+        }
+        .hl{
+            color:rgba(0,94,200,0.8);
+        }
+        a{
+            font-size:1.5em;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>IFT2255 | #GYM : Devoir 1</h1>
+        <h2>Membres de l'équipe</h2>
+        <div class="membre">
+            <h4>Nom</h4>       : Mégane Dandurand<br>
+            <h4>Matricule</h4> : 5024<br>
+            <h4>Courriel </h4> : megane.dandurand@umontreal.ca<br>
+            <h4>Temps mis</h4> : Placeholder<br>
+        </div>
+        <div class="membre">
+            <h4>Nom</h4>       : André Tran<br>
+            <h4>Matricule</h4> : 1185<br>
+            <h4>Courriel </h4> : andre-viet.tran@umontreal.ca<br>
+            <h4>Temps mis</h4> : Placeholder<br>
+        </div>
+        <div class="membre">
+            <h4>Nom</h4>       : Kevin Mwanangwa<br>
+            <h4>Matricule</h4> : 0820<br>
+            <h4>Courriel </h4> : mwesa.kevin.mwanangwa@umontreal.ca<br>
+            <h4>Temps mis</h4> : Placeholder<br>
+        </div>
+        <div class="clr"></div>
+    </header>
+
+    <main>   
+        <h2>Glossaire</h2>
+        <section>                     
+            <p><strong class="ul">Réception du #GYM</strong> : Endroit ou se déroule toutes les interactions permettant l'accès au #GYM et à ses services.</p>
+            <p><strong class="ul">Client</strong> : Terme général désignant toute personne se présentant à la receptions dans le but d'UTILISER les servives du #GYM. </p>         
+            <p><strong class="ul">Agent</strong> : Personne qui s’occupe de la reception des clients et des interaction avec le système informatique du #GYM. </p>
+            <p><strong class="ul">Membre</strong> : Client adhérée au #GYM ayant un accès illimité à tous les services offerts par l'établissement. </p>            
+            <p><strong class="ul">Professionnel</strong> : Personne inscrit au #GYM ayant le droit de fournir un service aux membres de l'établissement.<p>  
+            <p><strong class="ul">Service</strong> : Représente une utilité fournie par un professionnel destinée aux membres du #GYM.</p>
+            <p><strong class="ul">Séance</strong> : Instance d'un service offerte à une date et une heure précise.</p>
+            <p><strong class="ul">Centre de Données</strong> : Le système central qui contient toutes les données et opérations reliées aux clients,membres et professionnels du #GYM.</p>
+            <p><strong class="ul">Répertoire des services </strong> : Le système qui contient toutes les données et opérations reliées à l'ensemble des services offerts au #GYM.</p>      
+            <p><strong class="ul">Numéro/Code de membre</strong> : Numéro unique représentant un membre à l'intérieur du système informatique du #GYM.</p>
+            <p><strong class="ul">Numéro/Code de professionnel</strong> : Numéro unique représentant un professionnel à l'intérieur du système informatique du #GYM.</p>
+            <p><strong class="ul">Numéro/Code de service</strong> : Code unique à 7 chiffes représentant un service à l'intérieur du système informatique du #GYM. </p>
+            <p><strong class="ul">Physiothérapeute </strong> : De façon générale, cette discipline de la santé intervient dans le traitement d’incapacités physiques qui découlent d
+                e blessures et de maladies qui peuvent toucher: les muscles, les articulations, les os, le système neurologique (cerveau, nerfs, moelle épinière), 
+                le système respiratoire (poumons), le système circulatoire (vaisseaux sanguins) et le système cardiaque (cœur).</p>
+            <p><strong class="ul">Massothérapeute </strong> : Personne qui donne des soins thérapeutiques corporels tels que massages et 
+                traitements (compresses, exposition aux lampes à infrarouge ou à rayons ultraviolets, bains à remous, etc.) en vue de corriger les troubles physiques du corps humain.</p>
+            <p><strong class="ul">Salles multisport </strong> : Salles dédiées à la pratique de sports au choix, par exemple : basket, soccer, tennis, etc..</p>
+            <p><strong class="ul">Cross-fit</strong> : Activité sportive associant gymnastique, haltérophilie et endurance. </p>
+            <p><strong class="ul">Nutritionniste</strong> : Nutritionniste désigne un spécialiste de la nutrition, c'est-à-dire spécialiste des questions concernant le rapport entre la nourriture et la santé. </p>
+        </section>
+
+        <h2>Diagramme UML des cas d'utilisation</h2>
+        <section>
+            <a href="vpp/Tache2_DiagCU.vpp"><h3>Diagramme : </h3></a>
+            <img src="img/DiagCU.png" alt="Digrammes des cas d'utilisation">
+        </section>
+
+        <h2>Cas d'utilisation</h2>
+        <section>
+            <!-- CU 1 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#1 : Adhésion à #GYM</h3>
+                <div class="cu-body">
+                    <p><strong>But</strong> : Adhésion du membre au centre sportif #GYM</p>
+                    <p><strong>Préconditions</strong> : Le membre se présente à la réception</p>
+                    <p><strong>Acteurs</strong> : Membre et agent à la réception.</p>
+                    <p><strong>Scénario principal</strong> :<br>
+                        <span class="enum">1. </span>Le client se présente à la réception et demande d’adhérer à #GYM.<br><span class="line-spacer"></span>
+                        <span class="enum">2. </span>L’agent lui demande ses informations personnelles.<br><span class="line-spacer"></span>
+                        <span class="enum">3. </span>Le client donne ses informations personnelles.<br><span class="line-spacer"></span>
+                        <span class="enum">4. </span>L’agent entre ses informations sur son ordinateur.<br><span class="line-spacer"></span>
+                        <span class="enum">5. </span>Les informations sont enregistrées dans le système central.<br><span class="line-spacer"></span>
+                        <span class="enum">6. </span>Le compte du membre est créé et un numéro unique lui est associé.<br><span class="line-spacer"></span>
+                        <span class="enum">7. </span>L’agent fournit le numéro au client.<br><span class="line-spacer"></span>
+                        <span class="enum">8. </span>L’échange se termine.<br><span class="line-spacer"></span>
+                    </p>
+                    <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                        <span class="enum">4a.1. </span>L’agent entre les informations et voit que le client est déjà membre du centre sportif (membre suspendu).<br><span class="line-spacer"></span>
+                        <span class="enum">4a.2. </span>L’agent demande au client s’il veut renouveler son abonnement (si oui passe au <span class="hl">CU #3</span> Renouvellement d’abonnement).<br><span class="line-spacer"></span>
+                        <span class="enum">4a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br>
+                        <span class="enum">4b.1. </span>L’agent entre les informations et voit que le client est déjà membre du centre sportif (compte actif).<br><span class="line-spacer"></span>
+                        <span class="enum">4b.2. </span>L’agent demande au client s’il veut simplement accéder au gym (si oui passe au <span class="hl">CU #2</span> Vérification du membre).<br><span class="line-spacer"></span>
+                        <span class="enum">4b.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br>                    
+                    </p>
+                    <p><strong>Postconditions</strong> : Un nouveau membre est créé dans le Centre de Données et un numéro unique lui est assigné.</p>
+                </div>
+            </div>
+            <!-- CU 2 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#2 :Vérification du membre ou du professionnel</h3>
+                <div class="cu-body">
+                    <p><strong>But</strong> : Vérification du membre ou du professionnel afin de lui donner accès au Centre sportif.</p>
+                    <p><strong>Préconditions</strong> : Le membre ou professionnel se présente à la réception.</p>
+                    <p><strong>Acteurs</strong> : Client (Membre ou professionnel) et agent à la réception.</p>
+                    <p><strong>Scénario principal</strong> :<br>
+                        <span class="enum">1. </span>Le client se présente à la réception et demande l’accès au centre.<br><span class="line-spacer"></span>
+                        <span class="enum">2. </span>Le client donne son numéro de membre/professionnel à l’agent et lui fournit sa carte d’identité.<br><span class="line-spacer"></span>
+                        <span class="enum">3. </span>L’agent à la réception vérifie le numéro unique sur le logiciel et vérifie l’identité.<br><span class="line-spacer"></span>
+                        <span class="enum">4. </span>Le numéro est valide et le mot « Validé » apparait sur l’écran.<br><span class="line-spacer"></span>
+                        <span class="enum">5. </span>La carte d’identité correspond avec le compte<br><span class="line-spacer"></span>
+                        <span class="enum">6. </span>L’agent ouvre le tourniquet du centre et redonne la carte d’identité au client<br><span class="line-spacer"></span>
+                        <span class="enum">7. </span>Le client accède au centre.<br><span class="line-spacer"></span>
+                        <span class="enum">8. </span>L’échange se termine.<br><span class="line-spacer"></span>
+                    </p>
+                    <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                        <span class="enum">4a.1. </span>Le numéro est invalide et « Numéro invalide » apparait à l’écran<br><span class="line-spacer"></span>
+                        <span class="enum">4a.2. </span>L’agent informe le client et lui demande s’il désire s’inscrire au centre sportif (Si oui passe à <span class="hl">CU #1</span><br Adhésion à #GYM ou CU #6 si c’est un professionnel)<br><span class="line-spacer"></span>
+                        <span class="enum">4a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                        <span class="enum">4b.1. </span>Le numéro est invalide et « Membre suspendu » apparait à l’écran<br><span class="line-spacer"></span>
+                        <span class="enum">4b.2. </span>L’agent informe le client et lui demande s’il désire renouveler son abonnement au centre sportif (Si oui passe à <span class="hl">CU #3</span><br Renouvellement d’abonnement)<br><span class="line-spacer"></span>
+                        <span class="enum">4b.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                        <span class="enum">5a.1. </span>La carte d’identité ne concorde pas avec l’identité du numéro de membre donné<br><span class="line-spacer"></span>
+                        <span class="enum">5a.2. </span>L’agent informe le client qu’il n’a pas accès au #GYM.<br><span class="line-spacer"></span>
+                        <span class="enum">5a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                    </p>
+                    <p><strong>Postconditions</strong> : Le client a droit d'accès au #GYM.</p>
+                </div>
+            </div>
+            <!-- CU 3 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#3 : Renouvellement d’abonnement à #GYM</h3>
+                <div class="cu-body">
+                    <p><strong>But</strong> : Un client veut renouveller son abonnement à #GYM.</p>
+                    <p><strong>Préconditions</strong> : Le membre se présente à la réception.</p>
+                    <p><strong>Acteurs</strong> : Membre et agent à la réception.</p>
+                    <p><strong>Scénario principal</strong> :<br>
+                        <span class="enum">1. </span>Le client se présente à la réception et demande de renouveler son abonnement à #GYM.<br><span class="line-spacer"></span>
+                        <span class="enum">2. </span>L’agent lui demande son numéro de membre.<br><span class="line-spacer"></span>
+                        <span class="enum">3. </span>Le client donne son numéro de membre.<br><span class="line-spacer"></span>
+                        <span class="enum">4. </span>L’agent entre son numéro de membre dans le système.<br><span class="line-spacer"></span>
+                        <span class="enum">5. </span>L’agent trouve le compte qui notifie « Membre suspendu » et renouvelle l’abonnement pour une période donnée.<br><span class="line-spacer"></span>
+                        <span class="enum">6. </span>L’agent laisse savoir au client que c’est fait.<br><span class="line-spacer"></span>
+                        <span class="enum">7. </span>L’échange se termine.<br><span class="line-spacer"></span>       
+                    </p>
+                    <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                        <span class="enum">5a.1. </span>Le message apparaissant à l’écran est « Validé »<br><span class="line-spacer"></span>
+                        <span class="enum">5a.2. </span>L’agent notifie le client que son compte est toujours actif.<br><span class="line-spacer"></span>
+                        <span class="enum">5a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">7</span><br>.<span class="line-spacer"></span>
+                        <span class="enum">5b.1. </span>Le message apparaissant à l’écran est « Numéro Invalide ».<br><span class="line-spacer"></span>
+                        <span class="enum">5b.2. </span>Passe au <span class="hl"><span class="hl">CU #1</span><br</span> (Adhésion à #GYM).<br><span class="line-spacer"></span>       
+                    </p>
+                    <p><strong>Postconditions</strong> : L’abonnement du membre est renouvelé.</p>
+                </div>
+            </div>
+            <!-- CU 4 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#4 : Confirmation de présence</h3>
+                <div class="cu-body">
+                    <p><strong>But</strong> : Le client veut confirmer sa présence à une séance future à laquelle il est inscrit.</p>
+                    <p><strong>Préconditions</strong> : Le membre se présente à la réception avant le début de la séance en question</p>
+                    <p><strong>Acteurs</strong> : Membre et agent à la réception.</p>
+                    <p><strong>Scénario principal</strong> :<br>
+                        <span class="enum">1. </span>Le client se présente à la réception du GYM pour une confirmation.<br><span class="line-spacer"></span>  
+                        <span class="enum">2. </span>L’agent lui demande son code de client, le code du service, ainsi que la séance à laquelle il veut confirmer sa présence.<br><span class="line-spacer"></span>  
+                        <span class="enum">3. </span>Le client lui fournit ces trois informations.<br><span class="line-spacer"></span>  
+                        <span class="enum">4. </span>L’agent consulte le répertoire des services à la recherche du service demandé ( Voir <span class="hl">CU #10</span> : Consultation de services ou séances )<br><span class="line-spacer"></span>  
+                        <span class="enum">5. </span>L’agent vérifie finalement l’inscription à la séance grâce au code client.<br><span class="line-spacer"></span> 
+                        <span class="enum">6. </span>L'agent effectue la confirmation.<br><span class="line-spacer"></span>  
+                        <span class="enum">7. </span>L’agent indique au client que la confirmation à bien été effectuée.<br><span class="line-spacer"></span>  
+                        <span class="enum">8. </span>L’échange se termine.<br><span class="line-spacer"></span>  
+                    </p>
+                    <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                        <span class="enum">4a.1. </span>Le service n’existe pas<br><span class="line-spacer"></span> 
+                        <span class="enum">4a.2. </span>L’agent indique au client que le service demandé est invalide ou n’existe pas.<br><span class="line-spacer"></span> 
+                        <span class="enum">4a.3. </span>La confirmation ne peut être effectuée.<br><span class="line-spacer"></span> 
+                        <span class="enum">4a.4. </span>En cas d’erreur, le client peut refaire une nouvelle demande après correction ( Retour à l'étape <span class="hl">4</span> ).<br><span class="line-spacer"></span>                    
+                        <span class="enum">4a.5. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                        <span class="enum">5a.1. </span>Le client n'est pas inscrit à la séance/service demandé.<br><span class="line-spacer"></span> 
+                        <span class="enum">5a.2. </span>La confirmation n’est pas effectuée.<br><span class="line-spacer"></span>
+                        <span class="enum">5a.3. </span>L'agent peut demander au client s'il veut s'inscrire à la séance demandée ( Voir <span class="hl">CU #5</span>, Inscription à une séance )<br><span class="line-spacer"></span> 
+                        <span class="enum">5b.1. </span>La séance n’existe pas<br><span class="line-spacer"></span> 
+                        <span class="enum">5b.2. </span>L’agent indique au client que la séance demandée est invalide ou n’existe pas.<br><span class="line-spacer"></span> 
+                        <span class="enum">5b.3. </span>La confirmation ne peut être effectuée.<br><span class="line-spacer"></span> 
+                        <span class="enum">5b.4. </span>En cas d’erreur, le client peut refaire une nouvelle demande après correction ( Retour à l'étape <span class="hl">5</span> ).<br><span class="line-spacer"></span>           
+                        <span class="enum">5a.5. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                    </p>
+                    <p><strong>Postconditions</strong> : La présence du client est confirmée et enregistrée sur le disque suivant le format demandé.</p>
+                </div>
+            </div>
+            <!-- CU 5 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#5 : Inscription à un service ou à une séance</h3>
+                <div class="cu-body">
+                    <p><strong>But</strong> : Un membre veut s’inscrire à un service ou à une séance</p>
+                    <p><strong>Préconditions</strong> : Le membre possède son numéro unique, l’agent est disponible à la réception et il y a déjà un service/séance créé dans le Répertoire des Services.</p>
+                    <p><strong>Acteurs</strong> : Le client (principal), l’agent (secondaire)</p>
+                    <p><strong>Scénario principal</strong> :<br>
+                        <span class="enum">1. </span>Le membre se présente à la réception et indique à l’agent qu’il veut s’inscrire à un service ou à une séance.<br><span class="line-spacer"></span> 
+                        <span class="enum">2. </span>Le système fait appel au CU #2 « Vérification ».<br><span class="line-spacer"></span>                         
+                        <span class="enum">3. </span> L’agent consulte le répertoire des services à la recherche du service demandé ( Voir <span class="hl">CU #10</span> : Consultation de services ou séances )<br><span class="line-spacer"></span> 
+                        <span class="enum">4. </span> Lorsque l’agent sélectionne un service ou une séance, les informations de ce service ou séance s’affichent sur l’écran et l’agent les partagent avec le membre.<br><span class="line-spacer"></span> 
+                        <span class="enum">5. </span> Le client choisi le service et la séance qu'il veut.<br><span class="line-spacer"></span> 
+                        <span class="enum">6. </span>L’agent sélectionne « Inscription à la séance ».<br><span class="line-spacer"></span>  
+                        <span class="enum">7. </span>L’agent par la suite sélectionne « Confirmer Inscription » et entre le numéro unique du membre.<br><span class="line-spacer"></span> 
+                        <span class="enum">8. </span>Le système confirme que le membre est inscrit à ce service / cette séance.<br><span class="line-spacer"></span> 
+                        <span class="enum">9. </span>Le membre prend en note les informations nécessaires.<br><span class="line-spacer"></span> 
+                        <span class="enum">10.</span>Le système revient au menu principal.<br><span class="line-spacer"></span> 
+                        <span class="enum">11. </span>L'échange se termine.<br><span class="line-spacer"></span> 
+                    </p>
+                    <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                        <span class="enum">2a.1. </span>La vérification est invalide.<br><span class="line-spacer"></span> 
+                        <span class="enum">2a.2. </span>On continue à l’étape <span class="hl">10</span>.<br><span class="line-spacer"></span> 
+                        <span class="enum">2b.1. </span>La vérification affiche « Membre suspendu »<br><span class="line-spacer"></span> 
+                        <span class="enum">2b.2. </span>Le système appelle le <span class="hl">CU #3</span> « Renouvellement d’abonnement » si le membre veut renouveler. Sinon, on continue à l’étape <span class="hl">10</span>.<br><span class="line-spacer"></span> 
+                        <span class="enum">4a.1. </span>Si aucun service ou séance est créé, on affiche « Aucun service/séance » et on continue à l’étape <span class="hl">10</span>.<br><span class="line-spacer"></span> 
+                        <span class="enum">5a.1. </span>Si le membre n’est pas intéressé à s’inscrire, l’agent clique sur « Fermer inscription » et on continue à l’étape <span class="hl">10</span>.<br><span class="line-spacer"></span> 
+                        <span class="enum">7a.1. </span>Si le membre ne veut pas s’inscrire à ce service ou séance, l’agent clique sur « Fermer service/séance » et on revient à l’étape <span class="hl">5</span>.<br><span class="line-spacer"></span>                         
+                    </p>
+                    <p><strong>Postconditions</strong> : Le membre est inscrit à un service ou à une séance. Le Répertoire des Services ajoute les informations du membre au service/séance. L’agent est disponible pour le prochain client.</p>
+                    </div>
+                </div>
+            <!-- CU 6 ----------------------------------------------------------------------------------------------------------------------------------->   
+            <div class="cu">
+                <h3 class="cu-header">CU#6 : Professionnel adhésion à #GYM</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Adhésion du professionnel au centre sportif #GYM</p>
+                <p><strong>Préconditions</strong> : Le professionnel se présente à la réception</p>
+                <p><strong>Acteurs</strong> : Professionnel et agent à la réception.</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le professionnel se présente à la réception et demande d’adhérer à #GYM.<br><span class="line-spacer"></span> 
+                    <span class="enum">2. </span>L’agent lui demande ses informations personnelles.<br><span class="line-spacer"></span> 
+                    <span class="enum">3. </span>Le professionnel donne ses informations personnelles.<br><span class="line-spacer"></span> 
+                    <span class="enum">4. </span>L’agent entre ses informations sur son ordinateur.<br><span class="line-spacer"></span> 
+                    <span class="enum">5. </span>Les informations sont enregistrées dans le système central.<br><span class="line-spacer"></span> 
+                    <span class="enum">6. </span>Le compte du professionnel est créé et un numéro de professionnel unique lui est associé.<br><span class="line-spacer"></span> 
+                    <span class="enum">7. </span>L’agent fournit le numéro unique au professionnel.<br><span class="line-spacer"></span>  
+                    <span class="enum">8. </span>L’échange se termine.<br><span class="line-spacer"></span> 
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">4a.1. </span>L’agent entre ses informations et voit que le professionnel a déjà un compte de professionnel<br><span class="line-spacer"></span> 
+                    <span class="enum">4a.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">8. </span><br><span class="line-spacer"></span> 
+                </p>
+                <p><strong>Postconditions</strong> : Un nouveau compte professionnel est créé dans le Centre de Données et un numéro unique lui est assigné.</p>
+                </div>
+            </div>
+            <!-- CU 7 ----------------------------------------------------------------------------------------------------------------------------------->  
+            <div class="cu">
+                <h3 class="cu-header">CU#7 : Fournir un service</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Le professionnel veut accéder au #GYM pour donner une séance de son service.</p>
+                <p><strong>Préconditions</strong> : Le professionnel se présente à la réception avant le début de la séance en question.</p>
+                <p><strong>Acteurs</strong> : Professionnel et agent à la réception.</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le professionnel se présente à la réception du GYM.<br><span class="line-spacer"></span>  
+                    <span class="enum">2. </span>L’agent lui demande son code de professionnel, le code du service, ainsi que la séance qu'il veut donner.<br><span class="line-spacer"></span>  
+                    <span class="enum">3. </span>Le professionnel lui fournit ces trois informations.<br><span class="line-spacer"></span>  
+                    <span class="enum">4. </span>L’agent consulte le répertoire des services à la recherche du service demandé ( Voir <span class="hl">CU #10</span><br> : Consultation de services ou séances )<br><span class="line-spacer"></span>  
+                    <span class="enum">5. </span>L’agent vérifie qu'il s'agit bien du bon professionnel grâce au code professionnel.<br><span class="line-spacer"></span> 
+                    <span class="enum">6. </span>L'agent confirme finalement la présence du professionnel pour la séance à donner.<br><span class="line-spacer"></span>  
+                    <span class="enum">7. </span>L’agent indique au professionnel que tout est bon et lui donner accès au #GYM.<br><span class="line-spacer"></span>  
+                    <span class="enum">8. </span>L’échange se termine.<br><span class="line-spacer"></span>  
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">4a.1. </span>Le service n’existe pas<br><span class="line-spacer"></span> 
+                    <span class="enum">4a.2. </span>L’agent indique au professionnel que le service demandé est invalide ou n’existe pas.<br><span class="line-spacer"></span> 
+                    <span class="enum">4a.3. </span>L'accès au #GYM est refusé.<br><span class="line-spacer"></span> 
+                    <span class="enum">4a.4. </span>En cas d’erreur, le professionnel peut refaire une nouvelle demande après correction ( Retour à l'étape <span class="hl">4</span> ).<br><span class="line-spacer"></span>                    
+                    <span class="enum">4a.5. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                    <span class="enum">5a.1. </span>Le professionnel n'est pas donneur/responsable de la séance/service demandé.<br><span class="line-spacer"></span> 
+                    <span class="enum">5a.2. </span>L'agent indique au professionnel que sa demande est invalide et que le service n'est pas le sien.<br><span class="line-spacer"></span> 
+                    <span class="enum">5a.3. </span>L'accès au #GYM est refusé.<br><span class="line-spacer"></span>                    
+                    <span class="enum">5b.1. </span>La séance n’existe pas<br><span class="line-spacer"></span> 
+                    <span class="enum">5b.2. </span>L’agent indique au professionnel que la séance demandée est invalide ou n’existe pas.<br><span class="line-spacer"></span> 
+                    <span class="enum">5b.3. </span>L'accès au #GYM est refusé.<br><span class="line-spacer"></span> 
+                    <span class="enum">5b.4. </span>En cas d’erreur, le client peut refaire une nouvelle demande après correction ( Retour à l'étape <span class="hl">5</span> ).<br><span class="line-spacer"></span>           
+                    <span class="enum">5a.5. </span>Le cas d’utilisation continue à l’étape <span class="hl">8</span>.<br><span class="line-spacer"></span>
+                </p>
+                <p><strong>Postconditions</strong> : La présence du professionnel pour sa séance est confirmée et enregistrée. Le professionnel à accès au #GYM et peut aller fournir son service.</p>
+                </div>
+            </div>
+            <!-- CU 8 ----------------------------------------------------------------------------------------------------------------------------------->
+            <div class="cu">
+                <h3 class="cu-header">CU#8 : Création de service</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Un professionnel veut créer un service.</p>
+                <p><strong>Préconditions</strong> : L’agent est disponible à la réception et le professionnel possède son numéro unique.</p>
+                <p><strong>Acteurs</strong> : Le professionnel (principal), l’agent (secondaire)</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le professionnel se présente à la réception et demande à l’Agent qu’il veut créer un service.<br><span class="line-spacer"></span> 
+                    <span class="enum">2. </span>Le système fait appel au <span class="hl">CU #2</span> « Vérification ».<br><span class="line-spacer"></span> 
+                    <span class="enum">3. </span>L’agent sélectionne l’option Créer un Service et demande les informations nécessaires au professionnel :<br><span class="line-spacer"></span> 
+                    <span style="text-indent:0; margin-left:20px; color:rebeccapurple; display:inline-block;">
+                        a. Date et heure actuelles<br><span class="line-spacer"></span> 
+                        b. Date du début du service<br><span class="line-spacer"></span> 
+                        c. Date de fin de service<br><span class="line-spacer"></span> 
+                        d. Date et heure des services<br><span class="line-spacer"></span> 
+                        e. Récurrence hebdomadaire de la séance (quels jours elle est offerte à la même heure)<br><span class="line-spacer"></span> 
+                        f. Capacité maximale<br><span class="line-spacer"></span> 
+                        g. Numéro du professionnel<br><span class="line-spacer"></span> 
+                        h. Code du service<br><span class="line-spacer"></span> 
+                        i. Commentaires (facultatif)<br><span class="line-spacer"></span> 
+                    </span><br><span class="line-spacer"></span> 
+                    <span class="enum">4. </span>L’agent entre les informations dans le système et pèse Confirmer.<br><span class="line-spacer"></span> 
+                    <span class="enum">5. </span>Le système génère le code du service et crée le service dans le Répertoire des Services.<br><span class="line-spacer"></span> 
+                    <span class="enum">6. </span>L’agent prend en note le code du service et le partage au professionnel.<br><span class="line-spacer"></span> 
+                    <span class="enum">7. </span>Le système revient au menu principal.<br><span class="line-spacer"></span> 
+                    <span class="enum">8. </span>L'échange se termine.<br><span class="line-spacer"></span>                 
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">2a.1. </span>La vérification est invalide<br><span class="line-spacer"></span> 
+                    <span class="enum">2a.2. </span>On continue à l’étape <span class="hl">7</span>.<br><span class="line-spacer"></span> 
+                </p>
+                <p><strong>Postconditions</strong> : Le professionnel prend en note le numéro de service. Le système revient sur la page principale et l’agent est disponible pour le prochain client.</p>
+                </div>
+            </div>
+            <!-- CU 9 ----------------------------------------------------------------------------------------------------------------------------------->    
+            <div class="cu">
+                <h3 class="cu-header">CU#9 : Consultation des inscriptions</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Un professionnel veut consulter les inscriptions à ses séances</p>
+                <p><strong>Préconditions</strong> : L’agent est disponible à la réception. Le professionnel possède son numéro unique et le code du service.</p>
+                <p><strong>Acteurs</strong> : Le professionnel (principal), l’agent (secondaire)</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le professionnel se présente à la réception et demande à l’agent qu’il veut consulter les inscriptions à une de ses séances.<br><span class="line-spacer"></span> 
+                    <span class="enum">2. </span>Le système fait appel au <span class="hl">CU #2</span> « Vérification ».<br><span class="line-spacer"></span> 
+                    <span class="enum">3. </span>L’agent peut sélectionner l’option « Consulter les inscriptions ». L’agent entre la date, l’heure de la séance et (le numéro de service) *.<br><span class="line-spacer"></span> 
+                    <span class="enum">4. </span>Le logiciel fait une requête dans le Répertoire des Services.<br><span class="line-spacer"></span> 
+                    <span class="enum">5. </span>Le logiciel affiche la liste de(s) membre(s) inscrits et affiche l’option pour imprimer la liste.<br><span class="line-spacer"></span> 
+                    <span class="enum">6. </span>L’agent pèse l’option « Imprimer » et donne au professionnel le document.<br><span class="line-spacer"></span> 
+                    <span class="enum">7. </span>Le système revient au menu principal.<br><span class="line-spacer"></span>
+                    <span class="enum">8. </span>L'échange se termine.<br><span class="line-spacer"></span>  
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">2a.1. </span>La vérification est invalide<br><span class="line-spacer"></span> 
+                    <span class="enum">2a.2. </span>On continue à l’étape <span class="hl">7</span>.<br><span class="line-spacer"></span>  
+                    <span class="enum">4a.1. </span>Si le service n’existe pas, on affiche « Service pas créé ». On continue à l’étape <span class="hl">7</span>.<br><span class="line-spacer"></span> 
+                    <span class="enum">5a.1. </span>Si la liste est vide, on affiche « Aucun membre inscrit ». On continue à l’étape <span class="hl">7</span>.<br><span class="line-spacer"></span> 
+                    
+                </p>
+                <p><strong>Postconditions</strong> : Le professionnel a une liste des membres inscrits à la séance demandée.</p>
+                </div>
+            </div>
+            <!-- CU 10 ---------------------------------------------------------------------------------------------------------------------------------->    
+            <div class="cu">
+                <h3 class="cu-header">CU#10 : Consultation de services ou séances</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Consultation de services ou séances </p>
+                <p><strong>Préconditions</strong> : Aucune</p>
+                <p><strong>Acteurs</strong> : L'agent(principal)</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>L'agent démarre une recherche dans le répertoire avec un code de service.<br><span class="line-spacer"></span> 
+                    <span class="enum">2. </span>Le répertoire lui fournit une liste des séance disponibles pour le service demandé.<br><span class="line-spacer"></span> 
+                    <span class="enum">3. </span>L'agent sélectionne la séance recherchée.<br><span class="line-spacer"></span> 
+                    <span class="enum">4. </span>L’agent effectue finalement la tâche ayant nécessité cette consultation<br><span class="line-spacer"></span> 
+                    ( Voir <span class="hl">CU #4</span> : Confirmation de présence, <span class="hl">CU #5</span> : Inscription à une séance ou <span class="hl">CU #7</span> : Fournir un service )<br><span class="line-spacer"></span> 
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">1b.1. </span>L’agent lance une recherche générale/sans code.<br><span class="line-spacer"></span> 
+                    <span class="enum">1b.2. </span>Le répertoire lui fournit une liste contenant l’ensemble des service et séances.<br><span class="line-spacer"></span> 
+                    1.b.3. Continue à l’étape <span class="hl">4. </span><br><span class="line-spacer"></span>                           
+                    <span class="enum">2a.1. </span>Le code de service entré dans le système est invalide et la liste retournée est vide.<br><span class="line-spacer"></span> 
+                    <span class="enum">2a.2. </span>Continue à l’étape <span class="hl">4</span>.<br><span class="line-spacer"></span>   
+                </p>
+                <p><strong>Postconditions</strong> : L'agent à maintenant accès a une ou plusieurs séances/services sur lesquels il peut opérer. </p>
+                </div>
+            </div>
+            <!-- CU 11 ----------------------------------------------------------------------------------------------------------------------------------> 
+            <div class="cu">
+                <h3 class="cu-header">CU#11 : Suppression de compte membre</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Suppression du compte du membre sur le logiciel</p>
+                <p><strong>Préconditions</strong> : Le membre se présente à la réception</p>
+                <p><strong>Acteurs</strong> : Le membre (principal), l’agent (secondaire)</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le client se présente à la réception et demande la suppression de son compte membre<br><span class="line-spacer"></span> 
+                    <span class="enum">2. </span>L’agent lui demande son numéro unique et sa carte d’identité<br><span class="line-spacer"></span> 
+                    <span class="enum">3. </span>Le client donne son numéro et fournit sa carte d’identité<br><span class="line-spacer"></span> 
+                    <span class="enum">4. </span>L’agent entre le code sur son ordinateur<br><span class="line-spacer"></span> 
+                    <span class="enum">5. </span>L’agent trouve le compte (« Validé » ou « Membre suspendu » apparait à l’écran)<br><span class="line-spacer"></span> 
+                    <span class="enum">6. </span>L’agent vérifie si l’identité de la personne correspond avec celle du numéro unique donné<br><span class="line-spacer"></span> 
+                    <span class="enum">7. </span>Les deux identités correspondent<br><span class="line-spacer"></span> 
+                    <span class="enum">8. </span>L’agent confirme avec le client qu’il veut bel et bien supprimer son compte<br><span class="line-spacer"></span> 
+                    <span class="enum">9. </span>Le client confirme vouloir supprimer son compte<br><span class="line-spacer"></span> 
+                    <span class="enum">10. </span>L’agent sélectionne « Supprimer ce membre »<br><span class="line-spacer"></span> 
+                    <span class="enum">11. </span>Le compte du membre est supprimé et « Membre supprimé » apparait à l’écran<br><span class="line-spacer"></span> 
+                    <span class="enum">12. </span>L’agent redonne la carte d’identité au client<br><span class="line-spacer"></span> 
+                    <span class="enum">13. </span>L’échange se termine<br><span class="line-spacer"></span>                     
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">5a.1. </span>L’agent ne trouve pas le compte du membre « Membre invalide » apparait à l’écran<br><span class="line-spacer"></span>   
+                    <span class="enum">5a.2. </span>En cas d’erreur, le client peut refaire une nouvelle demande après correction ( Retour à l'étape 4 )<br><span class="line-spacer"></span>  
+                    <span class="enum">5a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">13</span>. </span><br><span class="line-spacer"></span>                     
+                    <span class="enum">7a.1. </span>Les deux identités ne correspondent pas.<br><span class="line-spacer"></span>   
+                    <span class="enum">7a.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">13</span>.<br><span class="line-spacer"></span>   
+                    <span class="enum">9a.1. </span>Le client décide de ne pas supprimer son compte<br><span class="line-spacer"></span>   
+                    <span class="enum">9a.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">13</span>.<br><span class="line-spacer"></span>                       
+                </p>
+                <p><strong>Postconditions</strong> : Un membre est supprimé du Centre de Données.</p>
+                </div>
+            </div>
+            <!-- CU 11 ---------------------------------------------------------------------------------------------------------------------------------->  
+            <div class="cu">
+                <h3 class="cu-header">CU#12 : Modification compte membre</h3>
+                <div class="cu-body">
+                <p><strong>But</strong> : Modification du compte du membre sur le logiciel</p>
+                <p><strong>Préconditions</strong> : Le membre se présente à la réception</p>
+                <p><strong>Acteurs</strong> : Le membre (principal), l’agent (secondaire)</p>
+                <p><strong>Scénario principal</strong> :<br>
+                    <span class="enum">1. </span>Le client se présente à la réception et demande une mise à jour à son compte membre<br><span class="line-spacer"></span>   
+                    <span class="enum">2. </span>L’agent lui demande son numéro unique et sa carte d’identité<br><span class="line-spacer"></span>   
+                    <span class="enum">3. </span>Le client donne son numéro et fournit sa carte d’identité<br><span class="line-spacer"></span>   
+                    <span class="enum">4. </span>L’agent entre le code sur son ordinateur<br><span class="line-spacer"></span>   
+                    <span class="enum">5. </span>L’agent trouve le compte (« Validé » ou « Membre suspendu » apparait à l’écran)<br><span class="line-spacer"></span>   
+                    <span class="enum">6. </span>L’agent vérifie si l’identité de la personne correspond avec celle du numéro unique donné<br><span class="line-spacer"></span>   
+                    <span class="enum">7. </span>Les deux identités correspondent<br><span class="line-spacer"></span>   
+                    <span class="enum">8. </span>L’agent demande au client quelles modifications il souhaite apporter à son compte<br><span class="line-spacer"></span>   
+                    <span class="enum">9. </span>Le client dit les modifications à l’agent<br><span class="line-spacer"></span>   
+                    <span class="enum">10. </span>L’agent effectue les changements et confirme les nouvelles informations avec le client avant de sauvegarder<br><span class="line-spacer"></span>   
+                    <span class="enum">11. </span>Le client confirme<br><span class="line-spacer"></span>   
+                    <span class="enum">12. </span>L’agent sélectionne « Sauvegarder »<br><span class="line-spacer"></span>   
+                    <span class="enum">13. </span>Le compte du membre est mis à jour et « Sauvegardé avec succès » apparait à l’écran<br><span class="line-spacer"></span>   
+                    <span class="enum">14. </span>L’agent redonne la carte d’identité au client<br><span class="line-spacer"></span>   
+                    <span class="enum">15. </span>L’échange se termine.<br><span class="line-spacer"></span>   
+                </p>
+                <p class="s-alts"><strong>Scénario alternatifs</strong> :<br>
+                    <span class="enum">5a.1. </span>L’agent ne trouve pas le compte du membre « Membre invalide » apparait à l’écran<br><span class="line-spacer"></span>   
+                    <span class="enum">5a.2. </span>En cas d’erreur, le client peut refaire une nouvelle demande après correction ( Retour à l'étape 4 )<br><span class="line-spacer"></span>  
+                    <span class="enum">5a.3. </span>Le cas d’utilisation continue à l’étape <span class="hl">15</span>.<br><span class="line-spacer"></span>                      
+                    <span class="enum">7a.1. </span>Les deux identités ne correspondent pas.<br><span class="line-spacer"></span>   
+                    <span class="enum">7a.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">15</span>.<br><span class="line-spacer"></span>   
+                    <span class="enum">11a.1 </span>Le client veut modifier les informations<br><span class="line-spacer"></span>   
+                    <span class="enum">11a.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">8.</span><br><span class="line-spacer"></span>   
+                    <span class="enum">11b.1 </span>Le client veut annuler la mise à jour<br><span class="line-spacer"></span>   
+                    <span class="enum">11b.2. </span>Le cas d’utilisation continue à l’étape <span class="hl">15</span>.<br><span class="line-spacer"></span>                      
+                </p>
+                <p><strong>Postconditions</strong> : Le compte d’un membre a été mis à jour avec succès dans le Centre de Données.</p>
+                </div>
+            </div>
+            
+            <div class="clr"></div>
+        </section>
+        
+        <h2>Risques</h2>
+        <section>
+            <p>
+                <strong class="ul">1. Risque important </strong>: Le nombre de salles disponibles<br>
+                Les besoins ne sont pas encore définis pour la réservation des salles disponibles. Par exemple, le système peut ajouter plusieurs séances possibles à la même heure, comme des cours de natation, lorsqu’il n’y a une seule piscine. 
+            </p>
+            <p><strong class="ul">2. Un risque éloigné</strong> : on peut avoir des membres, professionnel, service/seances dupliquees</p>
+            <p><strong class="ul">3. Risque important </strong> Manque de documentation pour les usagers du logiciel.</p>
+            <p><strong class="ul">4. Risque important </strong>: Exigences changeant au cours du développement</p>
+            <p><strong class="ul">5. Risque important :</strong> Maintenance parce que on ne touchera plus au programme une fois ce dernier complété.</p>
+        
+        </section>
+
+        <h2>Exigences non-fonctionnelles</h2>
+        <section>
+            <p><h4 class="ul">1</h4> : Langage de programmation utilisé Java</p>
+            <p><h4 class="ul">2</h4> :Temps d’attente assez rapide pour servir un flux important de clients</p>
+            <p><h4 class="ul">3</h4> :Répertoire des Services est créé comme un fichier</p>
+            <p><h4 class="ul">4</h4> :Maintenable</p>
+            <p><h4 class="ul">5</h4> :Le fait que chaque membre a un code unique permet l’identification rapide et sécuritaire des clients. Aide à s’assurer que certaines personnes n’aient pas accès à des séances sans inscription ou confirmation. Aide aussi à ce que seules les personnes abonnées puissent accéder au gym.</p>
+        </section>
+
+        <h2>Analyse</h2>
+        <section>
+            <br>
+            <p style="text-indent: 0;">
+            •	Quelles parties seront informatisées et comment ?<br>
+            •	Où seront stockées les données ?<br>
+            •	Quel matériel sera nécessaire ?<br>
+            •	Comment le système #GYM que vous développez interagira avec les autres systèmes ?<br>
+            •	Comment les utilisateurs interagiront avec le système ?<br>
+            </p>
+            <br>
+            <p>
+                Tout sera codé en Java ( Intellij, Eclipse… ) sur Windows 10 sur nos ordinateurs personnels.
+                Ce qui devra être informatisé est tout ce qui est en lien avec la gestion et création de comptes de membres et professionnels abonnés 
+                (ou antérieurement abonnés) au Centre ainsi qu’à la gestion et création de services fournis par des professionnels. Ceci inclut l’inscription 
+                à ces-dites séances ou services, la vérification d’identité afin d’accéder au gym, ainsi que la confirmation et consultation d’inscriptions aux séances.
+                Les informations du centre de données et du répertoire des services sera encrypté dans un fichier JSON, qui sera notre base de données locale.
+                Avec une souris, un clavier, un écran et un ordinateur.
+            </p>
+             <br>
+        </section>
+
+        <h2>Diagramme UML d'activité</h2>
+        <section>
+            <a href="vpp/Tache7_GestionMembre.vpp"><h3>Ajouter/mettre à jour/supprimer un membre : </h3></a>
+            <img src="img/GestMem.png" alt="Gestion des membres">
+
+            <a href="vpp/Tache7_GestionService.vpp"><h3>Ajouter/mettre à jour/supprimer un service : </h3></a> 
+            <img src="img/GestServ.png" alt="Gestion des services">
+
+            <a href="vpp/Tache7_Seances.vpp"><h3>Inscription à une séance : </h3></a>            
+            <img src="img/Inscription.png" alt="Gestion des inscriptions">
+
+            <a href="vpp/Tache7_Seances.vpp"><h3>Confirmer séance : </h3></a>   
+            <img src="img/Confirmation.png" alt="Gestion des confirmations">
+        </section>
+
+        <h2>Collaboration</h2>
+        <section>
+            <h3>Distribution de tâches</h3>
+            <table cellpadding="5px">
+                <thead>
+                    <tr>
+                        <th colspan="1" rowspan="1">Tâche</td>
+                        <th colspan="1" rowspan="1">Megane</td>
+                        <th colspan="1" rowspan="1">André</td>
+                        <th colspan="1" rowspan="1">Kevin</td>
+                    </tr>
+                </thead>
+                <tbody>    
+                    <tr>
+                        <td colspan="1" rowspan="1">1. Glossaire</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                    </tr>             
+                    <tr>
+                        <td colspan="1" rowspan="1">2. Diagramme CUs</td>
+                        <td colspan="1" rowspan="1">70%</td>
+                        <td colspan="1" rowspan="1">10%</td>
+                        <td colspan="1" rowspan="1">20%</td>
+                    </tr>     
+                    <tr>
+                        <td colspan="1" rowspan="1">3. CUs</td>
+                        <td colspan="1" rowspan="1">40%</td>
+                        <td colspan="1" rowspan="1">30%</td>
+                        <td colspan="1" rowspan="1">30%</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="1" rowspan="1">4. Risques</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="1" rowspan="1">5. Exigences</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                    </tr>           
+                    <tr>
+                        <td colspan="1" rowspan="1">6. Analyse</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                        <td colspan="1" rowspan="1">33%</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="1" rowspan="1">7. Diagrammes d'act.</td>
+                        <td colspan="1" rowspan="1">25%</td>
+                        <td colspan="1" rowspan="1">25%</td>
+                        <td colspan="1" rowspan="1">50%</td>
+                    </tr> 
+                    <tr>
+                        <td colspan="1" rowspan="1">8. Rapport</td>
+                        <td colspan="1" rowspan="1">0%</td>
+                        <td colspan="1" rowspan="1">0%</td>
+                        <td colspan="1" rowspan="1">100%</td>
+                    </tr> 
+                </tbody>
+            </table>
+
+            <br>
+            <h3>Statistiques Bitbucket</h3>
+                <img src="img/Graph1.png" alt="Graph 1">
+                <br>
+                <img src="img/Graph2.png" alt="Graph 2">
+                <br>
+                <img src="img/Graph3.png" alt="Graph 3">
+            <br>
+        </section>
+    </main>
+</body>
+</html>
+
